@@ -9,18 +9,21 @@ namespace Escalonador
     {
         public string Name { get; set; }
         public int  Time { get; set; }
+        private int Limit;
+
         public Transition DestinationUp { get; set; }
         public Transition DestinationDown { get; set; }
 
-        private List<Airplane> Airplanes;
-        private int Limit;
+        private List<Airplane> AirplanesToUp;
+        private List<Airplane> AirplanesToDown;
 
         public Transition(string name, int time, int limit)
         {
             Name = name;
             Time = time;
             Limit = limit;
-            Airplanes = new List<Airplane>();
+            AirplanesToUp = new List<Airplane>();
+            AirplanesToDown = new List<Airplane>();
         }
 
         public void ConfigureDestination (Transition destinationUp, Transition destinationDown)
@@ -29,66 +32,96 @@ namespace Escalonador
             this.DestinationDown = destinationDown;
         }
 
-        public bool HasSpace()
+        private bool HasSpace()
         {
-            return Airplanes.Count < Limit;
+            return (AirplanesToUp.Count + AirplanesToDown.Count) < Limit;
         }
 
-        public void AddAirplane(Airplane airplane, Flow flow)
+        public int AddAirplane(Airplane airplane, Flow flow)
         {
-            Airplanes.Add(airplane);
-            Console.WriteLine($"Airplane {airplane.Index} just entered {this.Name}.");
-            Thread.Sleep(this.Time * 1000);
-
-            Thread T1 = new Thread(() => DelegateAriplane(airplane, flow));
-            T1.Start();
-        }
-
-        private void DelegateAriplane(Airplane airplane, Flow flow)
-        {
-            while (true)
+            if (HasSpace())
             {
-                if (flow == Flow.Up)
-                {
-                    if (DestinationUp != null)
-                    {
-                        if (DestinationUp.HasSpace())
-                        {
-                            DestinationUp.AddAirplane(airplane, Flow.Up);
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        if (DestinationDown.HasSpace())
-                        {
-                            DestinationDown.AddAirplane(airplane, Flow.Down);
-                            break;
-                        }
-                    }
-                }
-                else if (flow == Flow.Down)
-                {
-                    if (DestinationDown != null)
-                    {
-                        if (DestinationDown.HasSpace())
-                        {
-                            DestinationDown.AddAirplane(airplane, Flow.Down);
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        if (DestinationUp.HasSpace())
-                        {
-                            DestinationUp.AddAirplane(airplane, Flow.Up);
-                            break;
-                        }
-                    }
-                }
-                Thread.Sleep(1000);
+                Console.WriteLine($"Airplane {airplane.Index} just entered in  {this.Name}");
+                if (flow == Flow.Up) AirplanesToUp.Add(airplane);
+                else AirplanesToDown.Add(airplane);
+                return 0;
             }
-            Airplanes.RemoveAt(0);
+            return 1;
         }
+
+        public void Delegations()
+        {
+            new Thread(() =>
+            {
+                while (true)
+                {
+                    if (AirplanesToUp.Count > 0)
+                    {
+                        Thread.Sleep(Time * 1000);
+
+                    }
+                }
+            }).Start();
+
+            new Thread(() =>
+            {
+                while (true)
+                {
+                    if (AirplanesToDown.Count > 0)
+                    {
+                        Thread.Sleep(Time * 1000);
+
+                    }
+                }
+            }).Start();
+        }
+
+        //public void DelegateAriplane()
+        //{
+        //    while (true)
+        //    {
+        //        if (flow == Flow.Up)
+        //        {
+        //            if (DestinationUp != null)
+        //            {
+        //                if (DestinationUp.HasSpace())
+        //                {
+        //                    DestinationUp.AddAirplane(airplane, Flow.Up);
+        //                    break;
+        //                }
+        //            }
+        //            else
+        //            {
+        //                if (DestinationDown.HasSpace())
+        //                {
+        //                    DestinationDown.AddAirplane(airplane, Flow.Down);
+        //                    break;
+        //                }
+        //            }
+        //        }
+        //        else if (flow == Flow.Down)
+        //        {
+        //            if (DestinationDown != null)
+        //            {
+        //                if (DestinationDown.HasSpace())
+        //                {
+        //                    DestinationDown.AddAirplane(airplane, Flow.Down);
+        //                    break;
+        //                }
+        //            }
+        //            else
+        //            {
+        //                if (DestinationUp.HasSpace())
+        //                {
+        //                    DestinationUp.AddAirplane(airplane, Flow.Up);
+        //                    break;
+        //                }
+        //            }
+        //        }
+        //        Thread.Sleep(1000);
+        //    }
+        //    Airplanes.RemoveAt(0);
+        //}
+
     }
 }

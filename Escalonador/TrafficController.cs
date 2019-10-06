@@ -40,23 +40,49 @@ namespace Escalonador
 
         public void DoItall()
         {
-            Thread MainThread = new Thread(InitializeList);
-            MainThread.Start();
-        }
-
-        public void InitializeList()
-        {
-            int currentIndex = 0;
-            while (currentIndex < Airplanes.Length)
+            /* Inicialização */
+            new Thread(() =>
             {
-                if (T1.HasSpace())
+                int currentIndex = 0;
+                while (currentIndex < (Airplanes.Length - 1))
                 {
-                    T1.AddAirplane(Airplanes[currentIndex], Flow.Down);
-                    currentIndex++;
+                    if (T1.AddAirplane(Airplanes[currentIndex], Flow.Down) == 0)
+                    {
+                        currentIndex++;
+                        break;
+                    }
                 }
-            }
+            }).Start();
+
+            /* Pista 20000 */
+            new Thread(() =>
+            {
+
+            }).Start();
+
+            /* Pista 15000 */
+            new Thread(() =>
+            {
+
+            }).Start();
+
+            /* Pista 10000 */
+            new Thread(() =>
+            {
+
+            }).Start();
+
+            /* Pista POUSO */
+            new Thread(() =>
+            {
+
+            }).Start();
+
+            /* Pista DESCOLAGEM */
+            new Thread(() =>
+            {
+
+            }).Start();
         }
-
-
     }
 }
