@@ -6,7 +6,8 @@ namespace Escalonador
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            TrafficController trafficController = new TrafficController();
+            trafficController.DoItall();
         }
     }
 }
