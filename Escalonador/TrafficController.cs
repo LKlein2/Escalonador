@@ -12,9 +12,9 @@ namespace Escalonador
 
         public TrafficController()
         {
-            T1 = new Transition("ESTRADA 20000 METROS DE ALTURA", 4, 7);
-            T2 = new Transition("ESTRADA 15000 METROS DE ALTURA", 3, 6);
-            T3 = new Transition("ESTRADA 10000 METROS DE ALTURA", 2, 7);
+            T1 = new Transition("ESTRADA 20000 METROS DE ALTURA", 4, 20);
+            T2 = new Transition("ESTRADA 15000 METROS DE ALTURA", 3, 20);
+            T3 = new Transition("ESTRADA 10000 METROS DE ALTURA", 2, 20);
             PP = new Transition("PISTA DE POUSO", 2, 1);
             PD = new Transition("PISTA DE DECOLAGEM", 2, 1);
             InstanceAirplanes();
@@ -40,48 +40,24 @@ namespace Escalonador
 
         public void DoItall()
         {
+            T1.Delegations();
+            T2.Delegations();
+            T3.Delegations();
+            PP.Delegations();
+            PD.Delegations();
+
             /* Inicialização */
             new Thread(() =>
             {
                 int currentIndex = 0;
-                while (currentIndex < (Airplanes.Length - 1))
+                while (currentIndex < (Airplanes.Length))
                 {
                     if (T1.AddAirplane(Airplanes[currentIndex], Flow.Down) == 0)
                     {
                         currentIndex++;
-                        break;
+                        Thread.Sleep(200);
                     }
                 }
-            }).Start();
-
-            /* Pista 20000 */
-            new Thread(() =>
-            {
-
-            }).Start();
-
-            /* Pista 15000 */
-            new Thread(() =>
-            {
-
-            }).Start();
-
-            /* Pista 10000 */
-            new Thread(() =>
-            {
-
-            }).Start();
-
-            /* Pista POUSO */
-            new Thread(() =>
-            {
-
-            }).Start();
-
-            /* Pista DESCOLAGEM */
-            new Thread(() =>
-            {
-
             }).Start();
         }
     }
