@@ -7,7 +7,7 @@ namespace Escalonador
 {
     public class TrafficController
     {
-        private Transition T1, T2, T3, PP, PD;
+        public Transition T1, T2, T3, PP, PD;
         private Airplane[] Airplanes = new Airplane[20];
 
         public TrafficController()

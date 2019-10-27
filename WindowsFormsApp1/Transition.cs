@@ -14,8 +14,8 @@ namespace Escalonador
         public Transition DestinationUp { get; set; }
         public Transition DestinationDown { get; set; }
 
-        private List<Airplane> AirplanesToUp;
-        private List<Airplane> AirplanesToDown;
+        public List<Airplane> AirplanesToUp;
+        public List<Airplane> AirplanesToDown;
 
         public Transition(string name, int time, int limit)
         {
