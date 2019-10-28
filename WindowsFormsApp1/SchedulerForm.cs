@@ -44,47 +44,47 @@ namespace WindowsFormsApp1
                 #region Pista 20
                 foreach (var item in Pista20Up)
                 {
-                    airplanes20 += "✈ " + item.Index.ToString() + " ";
+                    airplanes20 += "(✈ " + item.Index.ToString() + " ↑)";
                 }
                 foreach (var item in Pista20Down)
                 {
-                    airplanes20 += "✈ " + item.Index.ToString() + " ";
+                    airplanes20 += "(✈ " + item.Index.ToString() + " ↓)"; //↓
                 }
                 #endregion
 
                 #region pista 10
                 foreach (var item in Pista10Up)
                 {
-                    airplanes10 += "✈ " + item.Index.ToString() + " ";
+                    airplanes10 += "(✈ " + item.Index.ToString() + " ↓)";
                 }
                 foreach (var item in Pista10Down)
                 {
-                    airplanes10 += "✈ " + item.Index.ToString() + " ";
+                    airplanes10 += "(✈ " + item.Index.ToString() + " ↑)";
                 }
                 #endregion
 
                 #region Pista 15
                 foreach (var item in Pista15Up)
                 {
-                    airplanes15 += "✈ " + item.Index.ToString() + " ";
+                    airplanes15 += "(✈ " + item.Index.ToString() + " ↓)";
                 }
                 foreach (var item in Pista15Down)
                 {
-                    airplanes15 += "✈ " + item.Index.ToString() + " ";
+                    airplanes15 += "(✈ " + item.Index.ToString() + " ↑)";
                 }
                 #endregion
 
                 #region Pouso
                 foreach (var item in PistaPouso)
                 {
-                    airplanesP += "✈ " + item.Index.ToString() + " ";
+                    airplanesP += "(✈ " + item.Index.ToString() + " ↓)";
                 }
                 #endregion
 
                 #region Decolagem
                 foreach (var item in PistaDecolagem)
                 {
-                    airplanesD += "✈ " + item.Index.ToString() + " ";
+                    airplanesD += "(✈ " + item.Index.ToString() + " ↑)";
                 }
                 #endregion
 
