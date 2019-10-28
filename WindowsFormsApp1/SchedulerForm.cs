@@ -17,33 +17,102 @@ namespace WindowsFormsApp1
         public SCH001()
         {
             InitializeComponent();
-            ShowAirplanes();
+            Thread t = new Thread(ShowAirplanes);
+            t.Start();
         }
 
         public void ShowAirplanes()
         {
             TrafficController trafficController = new TrafficController();
             trafficController.DoItall();
-
-            List<Airplane> Pista20Up   = trafficController.T1.AirplanesToUp;
-            List<Airplane> Pista20Down = trafficController.T1.AirplanesToDown;
-
-            List<Airplane> Pista15Up   = trafficController.T2.AirplanesToUp;
-            List<Airplane> Pista15Down = trafficController.T2.AirplanesToDown;
-
-            List<Airplane> Pista10Up   = trafficController.T3.AirplanesToUp;
-            List<Airplane> Pista10Down = trafficController.T3.AirplanesToDown;
-
-            List<Airplane> PistaPouso     = trafficController.PP.AirplanesToDown;
-            List<Airplane> PistaDecolagem = trafficController.PD.AirplanesToUp;
-
-            new Thread(() => 
+            while (true)
             {
+                List<Airplane> Pista20Up   = trafficController.T1.AirplanesToUp;
+                List<Airplane> Pista20Down = trafficController.T1.AirplanesToDown;
 
+                List<Airplane> Pista15Up   = trafficController.T2.AirplanesToUp;
+                List<Airplane> Pista15Down = trafficController.T2.AirplanesToDown;
 
+                List<Airplane> Pista10Up   = trafficController.T3.AirplanesToUp;
+                List<Airplane> Pista10Down = trafficController.T3.AirplanesToDown;
 
+                List<Airplane> PistaPouso     = trafficController.PP.AirplanesToUp;
+                List<Airplane> PistaDecolagem = trafficController.PD.AirplanesToUp;
 
-            }).Start();
+                string airplanes20 = "", airplanes15 = "", airplanes10 = "", airplanesP = "", airplanesD = "";
+                
+                #region Pista 20
+                foreach (var item in Pista20Up)
+                {
+                    airplanes20 += "✈ " + item.Index.ToString() + " ";
+                }
+                foreach (var item in Pista20Down)
+                {
+                    airplanes20 += "✈ " + item.Index.ToString() + " ";
+                }
+                #endregion
+
+                #region pista 10
+                foreach (var item in Pista10Up)
+                {
+                    airplanes10 += "✈ " + item.Index.ToString() + " ";
+                }
+                foreach (var item in Pista10Down)
+                {
+                    airplanes10 += "✈ " + item.Index.ToString() + " ";
+                }
+                #endregion
+
+                #region Pista 15
+                foreach (var item in Pista15Up)
+                {
+                    airplanes15 += "✈ " + item.Index.ToString() + " ";
+                }
+                foreach (var item in Pista15Down)
+                {
+                    airplanes15 += "✈ " + item.Index.ToString() + " ";
+                }
+                #endregion
+
+                #region Pouso
+                foreach (var item in PistaPouso)
+                {
+                    airplanesP += "✈ " + item.Index.ToString() + " ";
+                }
+                #endregion
+
+                #region Decolagem
+                foreach (var item in PistaDecolagem)
+                {
+                    airplanesD += "✈ " + item.Index.ToString() + " ";
+                }
+                #endregion
+
+                UpdateText(label1, airplanes20);
+                UpdateText(label2, airplanes15);
+                UpdateText(label3, airplanes10);
+                UpdateText(label4, airplanesP);
+                UpdateText(label5, airplanesD);
+                Thread.Sleep(1000);
+            }
+
+        }
+
+        public void UpdateText(Label label, string text)
+        {
+            if (label.InvokeRequired)
+            {
+                label.BeginInvoke((MethodInvoker) delegate () { label.Text = text; });
+            }
+            else
+            {
+                label.Text = text;
+            }
+        }
+
+        private void SCH001_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -12,10 +12,10 @@ namespace Escalonador
 
         public TrafficController()
         {
-            T1 = new Transition("ESTRADA 20000 METROS DE ALTURA", 1, 20);
+            T1 = new Transition("ESTRADA 20000 METROS DE ALTURA", 2, 20);
             T2 = new Transition("ESTRADA 15000 METROS DE ALTURA", 2, 20);
-            T3 = new Transition("ESTRADA 10000 METROS DE ALTURA", 1, 20);
-            PP = new Transition("PISTA DE POUSO", 1, 1);
+            T3 = new Transition("ESTRADA 10000 METROS DE ALTURA", 2, 20);
+            PP = new Transition("PISTA DE POUSO", 2, 1);
             PD = new Transition("PISTA DE DECOLAGEM", 2, 1);
             InstanceAirplanes();
             ConfigureDestinations();
