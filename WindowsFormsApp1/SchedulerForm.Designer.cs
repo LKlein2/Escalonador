@@ -49,103 +49,103 @@
             // Pista10
             // 
             this.Pista10.Image = ((System.Drawing.Image)(resources.GetObject("Pista10.Image")));
-            this.Pista10.Location = new System.Drawing.Point(10, 102);
-            this.Pista10.Margin = new System.Windows.Forms.Padding(2);
+            this.Pista10.Location = new System.Drawing.Point(13, 126);
+            this.Pista10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Pista10.Name = "Pista10";
-            this.Pista10.Size = new System.Drawing.Size(576, 41);
+            this.Pista10.Size = new System.Drawing.Size(768, 50);
             this.Pista10.TabIndex = 11;
             this.Pista10.TabStop = false;
             // 
             // Pista15
             // 
             this.Pista15.Image = ((System.Drawing.Image)(resources.GetObject("Pista15.Image")));
-            this.Pista15.Location = new System.Drawing.Point(10, 57);
-            this.Pista15.Margin = new System.Windows.Forms.Padding(2);
+            this.Pista15.Location = new System.Drawing.Point(13, 70);
+            this.Pista15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Pista15.Name = "Pista15";
-            this.Pista15.Size = new System.Drawing.Size(576, 41);
+            this.Pista15.Size = new System.Drawing.Size(768, 50);
             this.Pista15.TabIndex = 10;
             this.Pista15.TabStop = false;
             // 
             // PistaDecolagem
             // 
             this.PistaDecolagem.Image = ((System.Drawing.Image)(resources.GetObject("PistaDecolagem.Image")));
-            this.PistaDecolagem.Location = new System.Drawing.Point(11, 193);
-            this.PistaDecolagem.Margin = new System.Windows.Forms.Padding(2);
+            this.PistaDecolagem.Location = new System.Drawing.Point(15, 238);
+            this.PistaDecolagem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PistaDecolagem.Name = "PistaDecolagem";
-            this.PistaDecolagem.Size = new System.Drawing.Size(576, 41);
+            this.PistaDecolagem.Size = new System.Drawing.Size(768, 50);
             this.PistaDecolagem.TabIndex = 9;
             this.PistaDecolagem.TabStop = false;
             // 
             // PistaPouso
             // 
             this.PistaPouso.Image = ((System.Drawing.Image)(resources.GetObject("PistaPouso.Image")));
-            this.PistaPouso.Location = new System.Drawing.Point(11, 148);
-            this.PistaPouso.Margin = new System.Windows.Forms.Padding(2);
+            this.PistaPouso.Location = new System.Drawing.Point(15, 182);
+            this.PistaPouso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PistaPouso.Name = "PistaPouso";
-            this.PistaPouso.Size = new System.Drawing.Size(576, 41);
+            this.PistaPouso.Size = new System.Drawing.Size(768, 50);
             this.PistaPouso.TabIndex = 8;
             this.PistaPouso.TabStop = false;
             // 
             // Pista20
             // 
             this.Pista20.Image = ((System.Drawing.Image)(resources.GetObject("Pista20.Image")));
-            this.Pista20.Location = new System.Drawing.Point(11, 11);
-            this.Pista20.Margin = new System.Windows.Forms.Padding(2);
+            this.Pista20.Location = new System.Drawing.Point(15, 14);
+            this.Pista20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Pista20.Name = "Pista20";
-            this.Pista20.Size = new System.Drawing.Size(576, 41);
+            this.Pista20.Size = new System.Drawing.Size(768, 50);
             this.Pista20.TabIndex = 7;
             this.Pista20.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 25);
+            this.label1.Location = new System.Drawing.Point(16, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(0, 17);
             this.label1.TabIndex = 12;
-            this.label1.Text = "label1";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 71);
+            this.label2.Location = new System.Drawing.Point(16, 87);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 13;
-            this.label2.Text = "label2";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 115);
+            this.label3.Location = new System.Drawing.Point(16, 142);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(0, 17);
             this.label3.TabIndex = 14;
-            this.label3.Text = "label3";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 162);
+            this.label4.Location = new System.Drawing.Point(17, 199);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(0, 17);
             this.label4.TabIndex = 15;
-            this.label4.Text = "label4";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 207);
+            this.label5.Location = new System.Drawing.Point(17, 255);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(0, 17);
             this.label5.TabIndex = 16;
-            this.label5.Text = "label5";
             // 
             // SCH001
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 249);
+            this.ClientSize = new System.Drawing.Size(800, 306);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -156,7 +156,7 @@
             this.Controls.Add(this.Pista10);
             this.Controls.Add(this.PistaPouso);
             this.Controls.Add(this.PistaDecolagem);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SCH001";
             this.Text = "Scheduler SISOP";
             this.Load += new System.EventHandler(this.SCH001_Load);

@@ -10,6 +10,7 @@ namespace Escalonador
         public string Name { get; set; }
         public int  Time { get; set; }
         private int Limit;
+        public object _lock = new object();
 
         public Transition DestinationUp { get; set; }
         public Transition DestinationDown { get; set; }
@@ -58,15 +59,18 @@ namespace Escalonador
                     if (AirplanesToUp.Count > 0)
                     {
                         Thread.Sleep(Time * 1000);
-                        Airplane a = AirplanesToUp[0];
-                        AirplanesToUp.RemoveAt(0);
-                        if (DestinationUp != null)
+                        lock (_lock)
                         {
-                            DelegateUp(a);
-                        }
-                        else
-                        {
-                            DelegateDown(a);
+                            Airplane a = AirplanesToUp[0];
+                            AirplanesToUp.RemoveAt(0);
+                            if (DestinationUp != null)
+                            {
+                                DelegateUp(a);
+                            }
+                            else
+                            {
+                                DelegateDown(a);
+                            }
                         }
                     }
                 }
@@ -79,15 +83,18 @@ namespace Escalonador
                     if (AirplanesToDown.Count > 0)
                     {
                         Thread.Sleep(Time * 1000);
-                        Airplane a = AirplanesToDown[0];
-                        AirplanesToDown.RemoveAt(0);
-                        if (DestinationDown != null)
+                        lock (_lock)
                         {
-                            DelegateDown(a);
-                        }
-                        else
-                        {
-                            DelegateUp(a);
+                            Airplane a = AirplanesToDown[0];
+                            AirplanesToDown.RemoveAt(0);
+                            if (DestinationDown != null)
+                            {
+                                DelegateDown(a);
+                            }
+                            else
+                            {
+                                DelegateUp(a);
+                            }
                         }
                     }
                 }
